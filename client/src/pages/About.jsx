@@ -1,35 +1,55 @@
-export default function About() {
+const About = () => {
   return (
     <div className='min-h-screen flex items-center justify-center'>
-      <div className='max-w-2xl mx-auto p-3 text-center'>
+      <div className='max-w-5xl mx-auto p-3 text-center'>
         <div>
-          <h1 className='text-3xl font font-semibold text-center my-7'>
-            About Sahand' Blog
+          <h1 className='text-3xl font-semibold text-center my-7'>
+            Über Eleni's Bekery
           </h1>
           <div className='text-md text-gray-500 flex flex-col gap-6'>
             <p>
-              Welcome to Sahand's Blog! This blog was created by Sahand Ghavidel
-              as a personal project to share his thoughts and ideas with the
-              world. Sahand is a passionate developer who loves to write about
-              technology, coding, and everything in between.
+              Unsere familiäre Bäckerei ist der neue Hotspot in Ihrer
+              Nachbarschaft, geschaffen mit einer Fülle von Liebe und
+              Leidenschaft für die Kunst des Backens. Inspiriert von
+              traditionellen Rezepten und verfeinert mit unserer eigenen Prise
+              Innovation, bieten wir eine Vielzahl von hausgemachten Süßigkeiten
+              und Snacks, die jeden Gaumen zufriedenstellen werden.
             </p>
 
             <p>
-              On this blog, you'll find weekly articles and tutorials on topics
-              such as web development, software engineering, and programming
-              languages. Sahand is always learning and exploring new
-              technologies, so be sure to check back often for new content!
+              Entdecken Sie unsere exquisite Auswahl an frisch gebackenen
+              Süßigkeiten und Croissants, die den perfekten Start in Ihren Tag
+              bieten. Der Geschmack von frisch gebackenem Brot oder köstlich
+              knusprigem Gebäck wird Sie in Momente der Gemütlichkeit und des
+              Genusses versetzen.
             </p>
 
             <p>
-              We encourage you to leave comments on our posts and engage with
-              other readers. You can like other people's comments and reply to
-              them as well. We believe that a community of learners can help
-              each other grow and improve.
+              Verwöhnen Sie Ihre Sinne mit dem Duft unserer warmen,
+              verführerischen Desserts, sorgfältig zubereitet aus hochwertigen
+              Zutaten und mit viel Liebe zum Detail. Unwiderstehliche Leckereien
+              wie weiche Kekse und exquisite Cremes sind nur ein Teil unserer
+              reichen Vielfalt.
+            </p>
+
+            <p>
+              Unser Sortiment umfasst nicht nur süße Leckereien und Snacks,
+              sondern auch köstliche Burger und Pizza. Egal, ob Sie klassische
+              Burger oder innovative Pizza-Rezepte bevorzugen, wir haben für
+              jeden Geschmack etwas dabei.
+            </p>
+            <p>
+              Tauchen Sie ein in die Atmosphäre unserer Bäckerei und genießen
+              Sie das gemütliche Ambiente, das zu Momenten der Ruhe und Freude
+              einlädt. Wir erwarten Sie mit offenen Türen und den köstlichsten
+              hausgemachten Leckereien, bereit, Ihren Tag zu verschönern und
+              Ihnen ein Lächeln ins Gesicht zu zaubern.
             </p>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default About;
