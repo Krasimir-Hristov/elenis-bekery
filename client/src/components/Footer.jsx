@@ -45,7 +45,7 @@ const FooterComponent = () => {
               <div className='w-20 h-20 flex'>
                 <img
                   className='w-full h-full p-2'
-                  src='/public/logo.png'
+                  src='/logo.png'
                   alt='logo'
                 />
               </div>
@@ -56,7 +56,8 @@ const FooterComponent = () => {
               <Footer.Title title='Sie können uns finden unter:' />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href={`https://www.google.com/maps/place/Eleni's+Bakery/@48.669106,9.3726732,17z/data=!3m1!4b1!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu`}
+                  href={`https://www.google.com/maps/place/Eleni's+Bakery/@48.6699623,9.3702266,17.5z/data=!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu`}
+
                   target='_blank'
                   rel='noopener noreferrer'
                 >
