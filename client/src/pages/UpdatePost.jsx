@@ -20,10 +20,12 @@ export default function UpdatePost() {
   const [imageUploadError, setImageUploadError] = useState(null);
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
+
   const { postId } = useParams();
 
+  const { currentUser } = useSelector((state) => state.user);
+
   const navigate = useNavigate();
-    const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     try {
@@ -86,13 +88,16 @@ export default function UpdatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`/api/post/updatepost/${formData._id}/${currentUser._id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `/api/post/updatepost/${postId}/${currentUser._id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
       if (!res.ok) {
         setPublishError(data.message);
@@ -107,14 +112,17 @@ export default function UpdatePost() {
       setPublishError('Something went wrong');
     }
   };
+
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
-      <h1 className='text-center text-3xl my-7 font-semibold'>Update post</h1>
+      <h1 className='text-center text-3xl my-7 font-semibold'>
+        Beitrag aktualisieren
+      </h1>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <TextInput
             type='text'
-            placeholder='Title'
+            placeholder='Titel'
             required
             id='title'
             className='flex-1'
@@ -129,10 +137,18 @@ export default function UpdatePost() {
             }
             value={formData.category}
           >
-            <option value='uncategorized'>Select a category</option>
-            <option value='javascript'>JavaScript</option>
-            <option value='reactjs'>React.js</option>
-            <option value='nextjs'>Next.js</option>
+            <option value='unkategorisiert'>Wähle eine Kategorie</option>
+            <option value='pizza'>Pizza</option>
+            <option value='hotdog'>Hot Dog</option>
+            <option value='bougatsa'>Bougatsa</option>
+            <option value='backwaren'>Backwaren</option>
+            <option value='brote'>Brote</option>
+            <option value='Kuchen'>Kuchen</option>
+            <option value='torten'>Torten</option>
+            <option value='kaffee'>Kaffee</option>
+            <option value='griechischespezialitäten'>
+              Griechische Spezialitäten
+            </option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
@@ -143,7 +159,6 @@ export default function UpdatePost() {
           />
           <Button
             type='button'
-            gradientDuoTone='purpleToBlue'
             size='sm'
             outline
             onClick={handleUpdloadImage}
@@ -157,7 +172,7 @@ export default function UpdatePost() {
                 />
               </div>
             ) : (
-              'Upload Image'
+              'Bild hochladen'
             )}
           </Button>
         </div>
@@ -172,15 +187,15 @@ export default function UpdatePost() {
         <ReactQuill
           theme='snow'
           value={formData.content}
-          placeholder='Write something...'
+          placeholder='Schreiben Sie etwas...'
           className='h-72 mb-12'
           required
           onChange={(value) => {
             setFormData({ ...formData, content: value });
           }}
         />
-        <Button type='submit' gradientDuoTone='purpleToPink'>
-          Update post
+        <Button type='submit' >
+          Beitrag aktualisieren
         </Button>
         {publishError && (
           <Alert className='mt-5' color='failure'>
