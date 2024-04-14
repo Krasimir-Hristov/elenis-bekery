@@ -51,7 +51,7 @@ export default function DashSidebar() {
                 icon={HiChartPie}
                 as='div'
               >
-                Dashboard
+                Übersicht
               </Sidebar.Item>
             </Link>
           )}
@@ -63,7 +63,7 @@ export default function DashSidebar() {
               labelColor='dark'
               as='div'
             >
-              Profile
+              Profil
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
@@ -73,7 +73,7 @@ export default function DashSidebar() {
                 icon={HiDocumentText}
                 as='div'
               >
-                Posts
+                Beiträge
               </Sidebar.Item>
             </Link>
           )}
@@ -85,7 +85,7 @@ export default function DashSidebar() {
                   icon={HiOutlineUserGroup}
                   as='div'
                 >
-                  Users
+                  Benutzer
                 </Sidebar.Item>
               </Link>
               <Link to='/dashboard?tab=comments'>
@@ -94,7 +94,7 @@ export default function DashSidebar() {
                   icon={HiAnnotation}
                   as='div'
                 >
-                  Comments
+                  Kommentare
                 </Sidebar.Item>
               </Link>
             </>

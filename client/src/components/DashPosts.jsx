@@ -1,21 +1,25 @@
-import { Modal, Table, Button } from 'flowbite-react';
+import { Button, Modal, Table } from 'flowbite-react';
 import { useEffect, useState } from 'react';
+import { HiOutlineExclamationCircle } from 'react-icons/hi2';
+
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { set } from 'mongoose';
 
-export default function DashPosts() {
+const DashPosts = () => {
   const { currentUser } = useSelector((state) => state.user);
+
+
   const [userPosts, setUserPosts] = useState([]);
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [postIdToDelete, setPostIdToDelete] = useState('');
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
         const data = await res.json();
+
         if (res.ok) {
           setUserPosts(data.posts);
           if (data.posts.length < 9) {
@@ -23,21 +27,24 @@ export default function DashPosts() {
           }
         }
       } catch (error) {
-        console.log(error.message);
+        console.log(error);
       }
     };
+
     if (currentUser.isAdmin) {
       fetchPosts();
     }
-  }, [currentUser._id]);
+  }, [currentUser._id, currentUser.isAdmin]);
 
   const handleShowMore = async () => {
     const startIndex = userPosts.length;
+
     try {
       const res = await fetch(
         `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
       );
       const data = await res.json();
+
       if (res.ok) {
         setUserPosts((prev) => [...prev, ...data.posts]);
         if (data.posts.length < 9) {
@@ -45,7 +52,7 @@ export default function DashPosts() {
         }
       }
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -77,17 +84,18 @@ export default function DashPosts() {
         <>
           <Table hoverable className='shadow-md'>
             <Table.Head>
-              <Table.HeadCell>Date updated</Table.HeadCell>
-              <Table.HeadCell>Post image</Table.HeadCell>
-              <Table.HeadCell>Post title</Table.HeadCell>
-              <Table.HeadCell>Category</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
+              <Table.HeadCell>Datum aktualisiert</Table.HeadCell>
+              <Table.HeadCell>Beitragsbild</Table.HeadCell>
+              <Table.HeadCell>Beitragstitel</Table.HeadCell>
+              <Table.HeadCell>Kategorie</Table.HeadCell>
+              <Table.HeadCell>Löschen</Table.HeadCell>
               <Table.HeadCell>
-                <span>Edit</span>
+                <span>Bearbeiten</span>
               </Table.HeadCell>
             </Table.Head>
+
             {userPosts.map((post) => (
-              <Table.Body className='divide-y'>
+              <Table.Body className='divide-y' key={post._id}>
                 <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
                   <Table.Cell>
                     {new Date(post.updatedAt).toLocaleDateString()}
@@ -116,35 +124,37 @@ export default function DashPosts() {
                         setShowModal(true);
                         setPostIdToDelete(post._id);
                       }}
-                      className='font-medium text-red-500 hover:underline cursor-pointer'
+                      className='font-medium text-red-600 hover:underline cursor-pointer'
                     >
-                      Delete
+                      Löschen
                     </span>
                   </Table.Cell>
                   <Table.Cell>
                     <Link
-                      className='text-teal-500 hover:underline'
+                      className='text-teal-600 hover:underline cursor-pointer'
                       to={`/update-post/${post._id}`}
                     >
-                      <span>Edit</span>
+                      <span>Bearbeiten</span>
                     </Link>
                   </Table.Cell>
                 </Table.Row>
               </Table.Body>
             ))}
           </Table>
+
           {showMore && (
             <button
               onClick={handleShowMore}
               className='w-full text-teal-500 self-center text-sm py-7'
             >
-              Show more
+              Weitere anzeigen
             </button>
           )}
         </>
       ) : (
-        <p>You have no posts yet!</p>
+        <p>Es gibt noch keine Beiträge!</p>
       )}
+
       <Modal
         show={showModal}
         onClose={() => setShowModal(false)}
@@ -154,16 +164,21 @@ export default function DashPosts() {
         <Modal.Header />
         <Modal.Body>
           <div className='text-center'>
-            <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
+            <HiOutlineExclamationCircle className='h-14 w-14 text-gray-500 dark:text-gray-200 mb-4 mx-auto' />
             <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-              Are you sure you want to delete this post?
+              Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?
             </h3>
             <div className='flex justify-center gap-4'>
-              <Button color='failure' onClick={handleDeletePost}>
-                Yes, I'm sure
+              <Button
+                color='failure'
+                className='mr-2'
+                onClick={handleDeletePost}
+              >
+                Ja, ich bin sicher
               </Button>
+
               <Button color='gray' onClick={() => setShowModal(false)}>
-                No, cancel
+                Nein, abbrechen
               </Button>
             </div>
           </div>
@@ -171,4 +186,6 @@ export default function DashPosts() {
       </Modal>
     </div>
   );
-}
+};
+
+export default DashPosts;

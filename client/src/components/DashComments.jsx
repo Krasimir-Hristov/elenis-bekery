@@ -6,10 +6,12 @@ import { useSelector } from 'react-redux';
 
 const DashComments = () => {
   const { currentUser } = useSelector((state) => state.user);
+
   const [comments, setComments] = useState([]);
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [commentIdToDelete, setCommentIdToDelete] = useState('');
+
   useEffect(() => {
     const fetchComments = async () => {
       try {
