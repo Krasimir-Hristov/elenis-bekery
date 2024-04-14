@@ -56,7 +56,7 @@ const SignUp = () => {
             <div className='w-13 h-13 flex'>
               <img
                 className='w-full h-full p-2'
-                src='/public/logo.png'
+                src='/logo.png'
                 alt='logo'
               />
             </div>
