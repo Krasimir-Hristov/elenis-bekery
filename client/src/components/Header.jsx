@@ -73,7 +73,7 @@ const Header = () => {
         <div className='w-16 h-16'>
           <img
             className='w-full h-full p-2'
-            src='/public/logo.png'
+            src='/logo.png'
             alt='logo'
           />
         </div>
