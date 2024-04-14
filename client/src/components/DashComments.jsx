@@ -1,10 +1,10 @@
-import { Modal, Table, Button } from 'flowbite-react';
+import { Button, Modal, Table } from 'flowbite-react';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { FaCheck, FaTimes } from 'react-icons/fa';
+import { HiOutlineExclamationCircle } from 'react-icons/hi2';
 
-export default function DashComments() {
+import { useSelector } from 'react-redux';
+
+const DashComments = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [comments, setComments] = useState([]);
   const [showMore, setShowMore] = useState(true);
@@ -77,12 +77,12 @@ export default function DashComments() {
         <>
           <Table hoverable className='shadow-md'>
             <Table.Head>
-              <Table.HeadCell>Date updated</Table.HeadCell>
-              <Table.HeadCell>Comment content</Table.HeadCell>
-              <Table.HeadCell>Number of likes</Table.HeadCell>
-              <Table.HeadCell>PostId</Table.HeadCell>
-              <Table.HeadCell>UserId</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
+              <Table.HeadCell>Datum aktualisiert</Table.HeadCell>
+              <Table.HeadCell>Kommentarinhalt</Table.HeadCell>
+              <Table.HeadCell>Anzahl der Likes</Table.HeadCell>
+              <Table.HeadCell>Post-ID</Table.HeadCell>
+              <Table.HeadCell>Benutzer-ID</Table.HeadCell>
+              <Table.HeadCell>Löschen</Table.HeadCell>
             </Table.Head>
             {comments.map((comment) => (
               <Table.Body className='divide-y' key={comment._id}>
@@ -102,7 +102,7 @@ export default function DashComments() {
                       }}
                       className='font-medium text-red-500 hover:underline cursor-pointer'
                     >
-                      Delete
+                      Löschen
                     </span>
                   </Table.Cell>
                 </Table.Row>
@@ -114,12 +114,12 @@ export default function DashComments() {
               onClick={handleShowMore}
               className='w-full text-teal-500 self-center text-sm py-7'
             >
-              Show more
+              Weitere anzeigen
             </button>
           )}
         </>
       ) : (
-        <p>You have no comments yet!</p>
+        <p>Es gibt noch keine Kommentare!</p>
       )}
       <Modal
         show={showModal}
@@ -132,14 +132,14 @@ export default function DashComments() {
           <div className='text-center'>
             <HiOutlineExclamationCircle className='h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto' />
             <h3 className='mb-5 text-lg text-gray-500 dark:text-gray-400'>
-              Are you sure you want to delete this comment?
+              Sind Sie sicher, dass Sie diesen Kommentar löschen möchten?
             </h3>
             <div className='flex justify-center gap-4'>
               <Button color='failure' onClick={handleDeleteComment}>
-                Yes, I'm sure
+                Ja, ich bin sicher
               </Button>
               <Button color='gray' onClick={() => setShowModal(false)}>
-                No, cancel
+                Nein, abbrechen
               </Button>
             </div>
           </div>
@@ -147,4 +147,6 @@ export default function DashComments() {
       </Modal>
     </div>
   );
-}
+};
+
+export default DashComments;
