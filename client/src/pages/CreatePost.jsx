@@ -84,7 +84,7 @@ export default function CreatePost() {
   };
   return (
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
-      <h1 className='text-center text-3xl my-7 font-semibold'>Create a post</h1>
+      <h1 className='text-center text-3xl my-7 font-semibold'>Erstellen Sie einen Beitrag</h1>
       <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <div className='flex flex-col gap-4 sm:flex-row justify-between'>
           <TextInput
@@ -102,10 +102,18 @@ export default function CreatePost() {
               setFormData({ ...formData, category: e.target.value })
             }
           >
-            <option value='uncategorized'>Select a category</option>
-            <option value='javascript'>JavaScript</option>
-            <option value='reactjs'>React.js</option>
-            <option value='nextjs'>Next.js</option>
+            <option value='unkategorisiert'>Wähle eine Kategorie</option>
+            <option value='pizza'>Pizza</option>
+            <option value='hotdog'>Hot Dog</option>
+            <option value='bougatsa'>Bougatsa</option>
+            <option value='backwaren'>Backwaren</option>
+            <option value='brote'>Brote</option>
+            <option value='Kuchen'>Kuchen</option>
+            <option value='torten'>Torten</option>
+            <option value='kaffee'>Kaffee</option>
+            <option value='griechischespezialitäten'>
+              Griechische Spezialitäten
+            </option>
           </Select>
         </div>
         <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
@@ -116,7 +124,6 @@ export default function CreatePost() {
           />
           <Button
             type='button'
-            gradientDuoTone='purpleToBlue'
             size='sm'
             outline
             onClick={handleUpdloadImage}
@@ -130,7 +137,7 @@ export default function CreatePost() {
                 />
               </div>
             ) : (
-              'Upload Image'
+              'Bild hochladen'
             )}
           </Button>
         </div>
@@ -144,15 +151,15 @@ export default function CreatePost() {
         )}
         <ReactQuill
           theme='snow'
-          placeholder='Write something...'
+          placeholder='Schreibe etwas...'
           className='h-72 mb-12'
           required
           onChange={(value) => {
             setFormData({ ...formData, content: value });
           }}
         />
-        <Button type='submit' gradientDuoTone='purpleToPink'>
-          Publish
+        <Button type='submit'>
+          Publizieren
         </Button>
         {publishError && (
           <Alert className='mt-5' color='failure'>

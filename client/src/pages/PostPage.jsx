@@ -78,20 +78,18 @@ export default function PostPage() {
       <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs'>
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
         <span className='italic'>
-          {post && (post.content.length / 1000).toFixed(0)} mins read
+          {post && (post.content.length / 1000).toFixed(0)} Minuten zum Lesen
         </span>
       </div>
       <div
         className='p-3 max-w-2xl mx-auto w-full post-content'
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
-      <div className='max-w-4xl mx-auto w-full'>
-        <CallToAction />
-      </div>
+
       <CommentSection postId={post._id} />
 
       <div className='flex flex-col justify-center items-center mb-5'>
-        <h1 className='text-xl mt-5'>Recent articles</h1>
+        <h1 className='text-xl mt-5'>Aktuelle Beiträge</h1>
         <div className='flex flex-wrap gap-5 mt-5 justify-center'>
           {recentPosts &&
             recentPosts.map((post) => <PostCard key={post._id} post={post} />)}
