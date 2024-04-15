@@ -81,7 +81,7 @@ const FooterComponent = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Telefon: +49-070244028907
+                  Telefon: +49 70244028907
                 </Footer.Link>
 
                 <Footer.Link
@@ -89,7 +89,7 @@ const FooterComponent = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Handy: +49-01575 2450913
+                  Handy: +49 1575 2450913
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
