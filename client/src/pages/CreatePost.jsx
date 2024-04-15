@@ -107,6 +107,7 @@ export default function CreatePost() {
             <option value='hotdog'>Hot Dog</option>
             <option value='bougatsa'>Bougatsa</option>
             <option value='backwaren'>Backwaren</option>
+            <option value='burger'>Burger</option>
             <option value='brote'>Brote</option>
             <option value='Kuchen'>Kuchen</option>
             <option value='torten'>Torten</option>
