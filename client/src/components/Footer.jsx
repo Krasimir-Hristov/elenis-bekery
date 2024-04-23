@@ -56,7 +56,7 @@ const FooterComponent = () => {
               <Footer.Title title='Sie können uns finden unter:' />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href={`https://www.google.com/maps/place/Eleni's+Bakery/@48.6699623,9.3702266,17.5z/data=!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu`}
+                  href={'https://www.google.com/maps/place/Eleni\'s+Bakery/@48.6699623,9.3702266,17.5z/data=!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu'}
 
                   target='_blank'
                   rel='noopener noreferrer'
@@ -77,7 +77,7 @@ const FooterComponent = () => {
               <Footer.Title title='Sie können uns kontaktieren unter:' />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href={`https://www.google.com/maps/place/Eleni's+Bakery/@48.6699623,9.3702266,17.5z/data=!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu`}
+                  href={'https://www.google.com/maps/place/Eleni\'s+Bakery/@48.6699623,9.3702266,17.5z/data=!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu'}
                   target='_blank'
                   rel='noopener noreferrer'
                 >
@@ -85,7 +85,7 @@ const FooterComponent = () => {
                 </Footer.Link>
 
                 <Footer.Link
-                  href={`https://www.google.com/maps/place/Eleni's+Bakery/@48.6699623,9.3702266,17.5z/data=!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu`}
+                  href={'https://www.google.com/maps/place/Eleni\'s+Bakery/@48.6699623,9.3702266,17.5z/data=!4m6!3m5!1s0x4799bf68136bdc31:0xbbc9e907b8430180!8m2!3d48.669106!4d9.3726732!16s%2Fg%2F11vwc922gp?entry=ttu'}
                   target='_blank'
                   rel='noopener noreferrer'
                 >
