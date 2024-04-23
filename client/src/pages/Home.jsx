@@ -25,7 +25,7 @@ const Home = () => {
     <div>
       <div className='flex flex-col items-center gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='hidden md:block text-3-xl font-bold lg:text-6xl'>
-          Willkommen bei Eleni's <span className='text-yellow-400'>Bakery</span>
+          Willkommen bei Eleni&apos;s <span className='text-yellow-400'>Bakery</span>
         </h1>
 
         <p className='text-gray-500 text-4xl sm:text-lg'>
