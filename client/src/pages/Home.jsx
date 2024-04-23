@@ -25,7 +25,7 @@ const Home = () => {
     <div>
       <div className='flex flex-col items-center gap-6 p-28 px-3 max-w-6xl mx-auto'>
         <h1 className='hidden md:block text-3-xl font-bold lg:text-6xl'>
-          Willkommen bei Eleni's <span className='text-yellow-400'>Bekery</span>
+          Willkommen bei Eleni's <span className='text-yellow-400'>Bakery</span>
         </h1>
 
         <p className='text-gray-500 text-4xl sm:text-lg'>
@@ -39,6 +39,10 @@ const Home = () => {
         >
           Alle Posts anzeigen
         </Link>
+        {/* <div className='flex gap-5'>
+          <p>Neuer Lieferservice</p>
+          <p>Telefon: +49 70244028907</p>
+        </div> */}
       </div>
 
 
@@ -49,6 +53,8 @@ const Home = () => {
             <h2 className='text-2xl font-semibold text-center'>
               Aktuelle Beiträge
             </h2>
+
+
             <div className='flex flex-wrap gap-4'>
               {posts.map((post) => (
                 <PostCard key={post._id} post={post} />
@@ -61,9 +67,14 @@ const Home = () => {
               {' '}
               Alle Posts anzeigen
             </Link>
+
           </div>
         )}
       </div>
+
+
+
+
     </div>
   );
 };
