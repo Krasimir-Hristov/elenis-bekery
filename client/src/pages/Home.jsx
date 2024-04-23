@@ -39,10 +39,10 @@ const Home = () => {
         >
           Alle Posts anzeigen
         </Link>
-        {/* <div className='flex gap-5'>
-          <p>Neuer Lieferservice</p>
-          <p>Telefon: +49 70244028907</p>
-        </div> */}
+        <div className='flex gap-5 justify-center items-center border-b-2 border-teal-500 flex-col md:flex-row'>
+          <p className='text-2xl md:text-3xl text-red-600'><span className='text-3xl md:text-4xl'>Neue !!!</span> Lieferservice</p>
+          <p className='text-2xl md:text-3xl'>Telefon: +49 70244028907</p>
+        </div>
       </div>
 
 
