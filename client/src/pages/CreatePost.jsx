@@ -112,6 +112,7 @@ export default function CreatePost() {
             <option value='Kuchen'>Kuchen</option>
             <option value='torten'>Torten</option>
             <option value='kaffee'>Kaffee</option>
+            <option value='Frühstück'>Frühstück</option>
             <option value='griechischespezialitäten'>
               Griechische Spezialitäten
             </option>
