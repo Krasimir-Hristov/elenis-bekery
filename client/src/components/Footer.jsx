@@ -15,22 +15,22 @@ import { useState } from 'react';
 const FooterComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const days = [
-    'Sonntag',
     'Montag',
     'Dienstag',
     'Mittwoch',
     'Donnerstag',
     'Freitag',
     'Samstag',
+    'Sonntag',
   ];
   const hours = [
-    '8:00-12:00 Uhr',
-    '7:00-17:00 Uhr',
-    '7:00-17:00 Uhr',
-    '7:00-17:00 Uhr',
-    '7:00-17:00 Uhr',
-    '7:00-17:00 Uhr',
-    '8:00-13:00 Uhr',
+    '8:00-16:00 Uhr',
+    '8:00-16:00 Uhr',
+    '8:00-16:00 Uhr',
+    '8:00-16:00 Uhr',
+    '8:00-16:00 Uhr',
+    '9:00-14:00 Uhr',
+    '10:00-13:00 Uhr',
   ];
   const currentDay = new Date().getDay();
   return (
@@ -99,7 +99,7 @@ const FooterComponent = () => {
                 className='text-sm sm:text-lg'
               />
               <Footer.LinkGroup col className='flex flex-col sm:flex-row'>
-                <p className='text-sm sm:text-base'>
+                <p className='text-sm sm:text-base border-b-2 border-b-teal-500'>
                   {days[currentDay]}: {hours[currentDay]}
                 </p>
                 {isOpen &&
